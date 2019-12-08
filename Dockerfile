@@ -13,9 +13,7 @@ RUN poetry install
 
 COPY . .
 
-RUN chmod +x ./wait-for-it.sh
-RUN chmod +x ./entrypoint.sh
-RUN chmod +x ./cmd.sh
+RUN chmod +x ./wait-for-it.sh ./entrypoint.sh ./cmd.sh
 
 EXPOSE 8000
 
