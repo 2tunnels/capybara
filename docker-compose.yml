@@ -1,0 +1,22 @@
+version: '3'
+services:
+  web:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      - "CAPYBARA_SECRET_KEY=secret"
+      - "CAPYBARA_DEBUG=yes"
+      - "CAPYBARA_POSTGRES_NAME=capybara"
+      - "CAPYBARA_POSTGRES_USER=capybara"
+      - "CAPYBARA_POSTGRES_PASSWORD=secret"
+      - "CAPYBARA_POSTGRES_HOST=postgres"
+      - "CAPYBARA_POSTGRES_PORT=5432"
+    depends_on:
+      - postgres
+  postgres:
+    image: postgres:12.1
+    environment:
+      - "POSTGRES_DB=capybara"
+      - "POSTGRES_USER=capybara"
+      - "POSTGRES_PASSWORD=secret"
