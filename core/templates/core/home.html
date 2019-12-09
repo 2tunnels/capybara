@@ -2,6 +2,22 @@
 
 {% block content %}
     <main class="container text-center my-5">
-        <img src="{{ image }}" alt="" class="img-fluid">
+        <div class="row">
+            <div class="col-12 col-md-8 offset-md-2 col-lg-6 offset-lg-3">
+                <form method="post" action="{% url 'core:authorize' %}">
+                    {% csrf_token %}
+                    <div class="input-group">
+                        <input type="text" name="subdomain" class="form-control">
+                        <div class="input-group-append">
+                            <span class="input-group-text">.myshopify.com</span>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block mt-3">Install</button>
+                </form>
+            </div>
+        </div>
+        <div class="mt-3">
+            <img src="{{ image }}" alt="" class="img-fluid">
+        </div>
     </main>
 {% endblock %}
