@@ -12,6 +12,8 @@ services:
       - "CAPYBARA_POSTGRES_PASSWORD=secret"
       - "CAPYBARA_POSTGRES_HOST=postgres"
       - "CAPYBARA_POSTGRES_PORT=5432"
+      - "CAPYBARA_SHOPIFY_API_KEY=secret"
+      - "CAPYBARA_SHOPIFY_API_SECRET_KEY=secret"
     depends_on:
       - postgres
   postgres:
